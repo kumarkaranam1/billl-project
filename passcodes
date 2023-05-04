@@ -1,0 +1,12 @@
+github access tokenn bill project 
+
+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
+
+resturentbill-token: sqp_a2fe4b2ea2e4036abb63486471b4be6312801536
+
+
+
+mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=resturentbill \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.login=sqp_a2fe4b2ea2e4036abb63486471b4be6312801536
