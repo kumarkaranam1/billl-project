@@ -10,26 +10,21 @@ pipeline {
             }
         }
         
-        stage ('Build & JUnit Test') {
+        stage ('Build') {
             steps {
                 sh 'mvn install' 
             }
-            post {
-               success {
-                    junit 'target/surefire-reports/**/*.xml'
-                }   
-            }
         }
+        
         stage('SonarQube Analysis'){
             steps{
                    withSonarQubeEnv('sonarqube') {
                         sh 'mvn clean verify sonar:sonar \
                        -Dsonar.projectKey=resturentbill \
                        -Dsonar.host.url=http://localhost:9000 \
-                       -Dsonar.login=sqp_a2fe4b2ea2e4036abb63486471b4be6312801536'
-
+                       -Dsonar.login=sqp_a2fe4b2ea2e4036abb63486471b4be6312801536
                     }
             }
         }
-        }
     }
+}
