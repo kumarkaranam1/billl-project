@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout git') {
             steps {
-               git branch: 'master', url: 'https://github.com/logicopslab/java-web-app'
+               git branch: 'master', url: 'https://github.com/kumarkaranam1/billl-project'
             }
         }
         
@@ -24,9 +24,9 @@ pipeline {
             steps{
                    withSonarQubeEnv('sonarqube') {
                         sh 'mvn clean verify sonar:sonar \
-                       -Dsonar.projectKey=devsecopsproject-key \
+                       -Dsonar.projectKey=resturentbill \
                        -Dsonar.host.url=http://localhost:9000 \
-                       -Dsonar.login=sqp_9d412572fdfaa5ff74cb4f05b00443a6d2a6676e'
+                       -Dsonar.login=sqp_a2fe4b2ea2e4036abb63486471b4be6312801536'
 
                     }
             }
